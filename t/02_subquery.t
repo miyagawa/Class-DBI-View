@@ -8,7 +8,7 @@ use CD::Music;
 use CD::Tester;
 
 BEGIN {
-    plan check_sqlite() ? (tests => 11) : (skip_all => 'no sqlite');
+    plan check_sqlite() ? (tests => 12) : (skip_all => 'no sqlite');
 }
 
 CD::Tester->test_all('SubQuery', 'SQLite');

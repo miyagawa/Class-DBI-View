@@ -14,3 +14,4 @@ t/lib/CD/Music.pm
 t/lib/CD/SQLite.pm
 t/lib/CD/Tester.pm
 t/lib/CD/mysql.pm
+META.yml                                 Module meta-data (added by MakeMaker)

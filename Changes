@@ -1,5 +1,10 @@
 Revision history for Perl extension Class::DBI::View
 
+0.05  Sat Feb 14 12:33:30 JST 2004
+	* Added retrieve_from_sql support in TemporaryTable
+	  (Thanks to Yoshimune Kitta again)
+	- Added test suite for retrieve_from_sql
+
 0.04  Sat Feb 14 00:06:35 JST 2004
 	* Fixed _class_name to table_alias()
 	  Now it needs Class::DBI 0.94 or over

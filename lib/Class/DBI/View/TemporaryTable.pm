@@ -2,11 +2,11 @@ package Class::DBI::View::TemporaryTable;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.04;
+$VERSION = 0.05;
 
 sub setup_view {
     my($class, $sql, %args) = @_;
-    for my $method (qw(retrieve_all retrieve search search_like)) {
+    for my $method (qw(sql_Retrieve sql_RetrieveAll)) {
 	_set_temporary_table($class, $method, $sql, %args);
     }
 

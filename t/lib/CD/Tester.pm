@@ -33,7 +33,7 @@ sub populate {
 	[ 'Ozzy Osbourne', 'No More Tears', 'Sony' ],
 	[ 'SLIPKNOT', 'IOWA', 'roadrunner' ],
 	[ 'Aerosmith', 'Just Push Play', 'Columbia' ],
-	[ 'No Use For A Name', 'UIVE IN A DIVE', 'FAT' ],
+	[ 'No Use For A Name', 'LIVE IN A DIVE', 'FAT' ],
 	[ 'SLAYER', 'GOD HATES US ALL', 'american' ],
     );
 
@@ -74,6 +74,12 @@ SQL
 	while (my $music = $iter->next) {
 	    $tester->is_eq($music->artist, 'Ozzy Osbourne', 'artist is Ozzy');
 	}
+    }
+
+    {
+	# test retrieve_from_sql
+	my $iter = CD::Music::Sony->retrieve_from_sql('title = ?', 'No More Tears');
+	$tester->is_num($iter->count, 1, "1 No More Tears");
     }
 
     # GROUP BY

@@ -8,7 +8,7 @@ use CD::Music;
 use CD::Tester;
 
 BEGIN {
-    plan check_mysql() ? (tests => 11) : (skip_all => 'no mysql');
+    plan check_mysql() ? (tests => 12) : (skip_all => 'no mysql');
 }
 
 CD::Tester->test_all('TemporaryTable', 'mysql');
