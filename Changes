@@ -1,5 +1,8 @@
 Revision history for Perl extension Class::DBI::View
 
+0.03  Fri Feb 28 18:11:16 JST 2003
+	- Fixed test code to check mysql/sqlite installation
+
 0.02  Fri Feb 28 16:56:17 JST 2003
 	- CPAN release
 

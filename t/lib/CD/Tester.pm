@@ -2,9 +2,30 @@ package CD::Tester;
 use strict;
 use CD::Music;
 
+require Exporter;
+@CD::Tester::ISA = qw(Exporter);
+@CD::Tester::EXPORT = qw(check_mysql check_sqlite);
+
+sub check_mysql {
+    eval { 
+        require DBI;
+	DBI->connect('dbi:mysql:test', '', '') or die $DBI::errstr;
+    };
+    return !$@;
+}
+
+sub check_sqlite {
+    my $dbname = "t/test.db";
+    eval { 
+        require DBI;
+	DBI->connect("dbi:SQLite:dbname=$dbname") or die $DBI::errstr;
+	unlink $dbname;
+    };
+    return !$@ 
+}
+
 sub populate {
     my($this, $driver) = @_;
-    # populate
     my @samples = (
 	[ 'Ozzy Osbourne', 'Down to the Earth', 'Sony' ],
 	[ 'Ozzy Osbourne', 'No More Tears', 'Sony' ],

@@ -2,7 +2,7 @@ package Class::DBI::View::TemporaryTable;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.02;
+$VERSION = 0.03;
 
 sub setup_view {
     my($class, $sql, %args) = @_;
