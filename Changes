@@ -1,5 +1,9 @@
 Revision history for Perl extension Class::DBI::View
 
+0.06  Tue Mar  1 22:05:28 JST 2005
+	- Fixed execute and sth_to_objects() as it works with recent Class::DBI
+	  (Thanks to SUGAWARA Hajime)
+
 0.05  Sat Feb 14 12:33:30 JST 2004
 	* Added retrieve_from_sql support in TemporaryTable
 	  (Thanks to Yoshimune Kitta again)

@@ -2,7 +2,7 @@ package Class::DBI::View::Having;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.05;
+$VERSION = 0.06;
 
 sub setup_view {
     my($class, $sql) = @_;
@@ -12,8 +12,7 @@ sub setup_view {
     *{"$class\::retrieve_from_sql"} =  sub {
 	my($real_class, $where, @vals) = @_;
 	my $sth = $real_class->sql_ViewHaving("HAVING $where");
-	$sth->execute(@vals);
-	return $real_class->sth_to_objects($sth);
+	return $real_class->sth_to_objects($sth, \@vals);
     };
     *{"$class\::retrieve_all"} = sub {
 	my $real_class = shift;
