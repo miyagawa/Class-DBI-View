@@ -17,7 +17,7 @@ sub _set_temporary_table {
     no strict 'refs';
     *{"$pkg\::$method"} = sub {
 	my $class = shift;
-	my $temp_table = $class->_class_name;
+	my $temp_table = $class->table_alias;
 	if ($args{cache_for_session}) {
 	    $class->db_Main->do("CREATE TEMPORARY TABLE IF NOT EXISTS $temp_table $sql");
 	}

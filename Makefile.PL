@@ -5,6 +5,6 @@ WriteMakefile(
     'PREREQ_PM' => {
 	Test::More => 0.32,
 	UNIVERSAL::require => 0,
-	Class::DBI => 0.90,
+	Class::DBI => 0.94,
     },
 );

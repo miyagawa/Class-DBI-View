@@ -10,6 +10,7 @@ sub check_mysql {
     eval { 
         require DBI;
 	DBI->connect('dbi:mysql:test', '', '') or die $DBI::errstr;
+	CD::Music::mysql->init();
     };
     return !$@;
 }
@@ -20,6 +21,7 @@ sub check_sqlite {
         require DBI;
 	DBI->connect("dbi:SQLite:dbname=$dbname") or die $DBI::errstr;
 	unlink $dbname;
+	CD::Music::SQLite->init();
     };
     return !$@ 
 }

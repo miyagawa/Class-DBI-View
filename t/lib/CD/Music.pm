@@ -1,9 +1,13 @@
 package CD::Music::mysql;
 use strict;
-use base qw(CD::mysql);
 
-__PACKAGE__->construct;
-__PACKAGE__->set_up_table("music");
+sub init {
+    require CD::mysql;
+    @CD::Music::mysql::ISA = qw(CD::mysql);
+
+    __PACKAGE__->construct;
+    __PACKAGE__->set_up_table("music");
+}
 
 sub construct {
     my $class = shift;
@@ -16,7 +20,7 @@ CREATE TABLE music (
 )
 SQL
     ;
-    END { $class->destruct; }
+    END { $class->destruct if $class; }
 }
 
 sub destruct {
@@ -24,10 +28,14 @@ sub destruct {
 }
 
 package CD::Music::SQLite;
-use base qw(CD::SQLite);
 
-__PACKAGE__->construct;
-__PACKAGE__->set_up_table("music");
+sub init {
+    require CD::SQLite;
+    @CD::Music::SQLite::ISA = qw(CD::SQLite);
+
+    __PACKAGE__->construct;
+    __PACKAGE__->set_up_table("music");
+}
 
 sub construct {
     my $class = shift;
@@ -40,7 +48,7 @@ CREATE TABLE music (
 )
 SQL
     ;
-    END { $class->destruct; }
+    END { $class->destruct if $class; }
 }
 
 sub destruct {
