@@ -2,7 +2,7 @@ package Class::DBI::View::SubQuery;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.03;
+$VERSION = 0.04;
 
 sub setup_view {
     my($class, $sql) = @_;
