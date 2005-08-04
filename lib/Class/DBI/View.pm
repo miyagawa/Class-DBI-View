@@ -2,20 +2,17 @@ package Class::DBI::View;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.06;
+$VERSION = 0.07;
 
 use UNIVERSAL::require;
 
 sub _croak { require Carp; Carp::croak(@_) }
-
-my %allowed = map { $_ => 1 } qw(TemporaryTable SubQuery Having);
 
 sub import {
     my($class, $strategy) = @_;
     my $pkg = caller;
 
     defined $strategy   or _croak("You should supply strategy for setup_view()");
-    $allowed{$strategy} or _croak("strategy $strategy is not implemented in Class::DBI::View");
 
     my $mod = "Class::DBI::View::$strategy";
        $mod->require or _croak($UNIVERSAL::require::ERROR);
